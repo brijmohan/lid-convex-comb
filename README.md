@@ -9,7 +9,7 @@ This package lets you perform language identification over spoken utterances. Fo
 
 The setup requires installation of RNNLM and SRILM. Please download and install them before proceeding to install this package.
 
-* RNNLM: untar `src/rnnlm-0.4b.tgz` and run `make` inside the extracted folder to build the RNNLM package. Update the RNNLM path in `train_phonotactics.sh`.
+* RNNLM: untar `src/rnnlm-0.4b.tgz` and run `make` inside the extracted folder to build the RNNLM package. Update the RNNLM path in `src/train_phonotactics.sh` and `src/test.sh`.
 * SRILM: Follow the instructions at given [link](http://www.speech.sri.com/projects/srilm/download.html) to install.
 
 Finally you must have have `ngram-count`, `ngram` and `rnnlm` in your PATH.
@@ -43,5 +43,12 @@ audio_file_path_6 <tab> language_tag2
 .
 ```
 
-Create another file named `test.txt` with similar format.
+Create another file named `test.txt` with similar format. After training is finished, make sure `data/langs` directory has a unique directory for each language for which you trained. Now run the following commands for testing on unseen data.
+```
+cd src
+python test.py test.txt
+```
 
+## Troubleshooting
+
+Please contact me for any issues at brijmohanlal.s [at] research [dot] iiit [dot] ac [dot] in.
